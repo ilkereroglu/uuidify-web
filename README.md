@@ -120,7 +120,7 @@ All animations are implemented using CSS keyframes and transitions in `src/css/c
 2. **Configure Build Settings:**
    - **Build command:** `npm run build`
    - **Build output directory:** `build`
-   - **Node version:** 18 or higher
+   - **Node version:** 20 or higher
 
 3. **Environment Variables:**
    - None required for basic setup
