@@ -1,0 +1,399 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* You can override the default Infima variables here. */
+:root {
+  /* Updated softened color palette */
+  --ifm-color-primary: #5F56D9;
+  --ifm-color-primary-dark: #5246c7;
+  --ifm-color-primary-darker: #4d42bc;
+  --ifm-color-primary-darkest: #3f369b;
+  --ifm-color-primary-light: #6c63eb;
+  --ifm-color-primary-lighter: #776ff0;
+  --ifm-color-primary-lightest: #9d97f7;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Custom color palette - Softened tones */
+  --uuidify-primary: #5F56D9;
+  --uuidify-text-dark: #374151;
+  --uuidify-bg-light: #FAFAFA;
+  --uuidify-bg-white: #FFFFFF;
+
+  /* Typography */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --ifm-heading-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+
+  /* Generous spacing */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-vertical: 1.5rem;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #776ff0;
+  --ifm-color-primary-dark: #6c63eb;
+  --ifm-color-primary-darker: #5f56d9;
+  --ifm-color-primary-darkest: #5246c7;
+  --ifm-color-primary-light: #8982f2;
+  --ifm-color-primary-lighter: #9d97f7;
+  --ifm-color-primary-lightest: #b8b3fa;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Global animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+
+
+
+
+/* Hero Section Styles */
+.hero-section {
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--uuidify-bg-light);
+}
+
+/* UUID Background Animation */
+.uuid-background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.uuid-floating-item {
+  position: absolute;
+  color: var(--uuidify-primary);
+  opacity: 0;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-weight: 600;
+  user-select: none;
+  animation: floatUp linear infinite, fadePulse ease-in-out infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-100px) rotate(10deg);
+  }
+}
+
+@keyframes fadePulse {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  20%,
+  80% {
+    opacity: 0.08;
+    /* Very subtle opacity */
+  }
+
+  50% {
+    opacity: 0.15;
+  }
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--uuidify-text-dark);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #6B7280;
+  margin-bottom: 4rem;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Terminal Block Styles */
+.terminal-block {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.terminal-window {
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.terminal-header {
+  background: #2d2d2d;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.terminal-dot.red {
+  background: #ff5f56;
+}
+
+.terminal-dot.yellow {
+  background: #ffbd2e;
+}
+
+.terminal-dot.green {
+  background: #27c93f;
+}
+
+.terminal-content {
+  padding: 2rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.terminal-prompt {
+  color: #4ec9b0;
+}
+
+.terminal-command {
+  color: #dcdcdc;
+}
+
+.terminal-output {
+  color: #ce9178;
+  margin-top: 0.5rem;
+}
+
+/* CTA Buttons */
+.cta-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button.primary {
+  background: var(--uuidify-primary);
+  color: white;
+  box-shadow: 0 4px 15px rgba(95, 86, 217, 0.25);
+}
+
+.cta-button.primary:hover {
+  background: #5246c7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(95, 86, 217, 0.35);
+  animation: pulse 1s infinite;
+  color: white;
+  text-decoration: none;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: var(--uuidify-primary);
+  border: 2px solid var(--uuidify-primary);
+}
+
+.cta-button.secondary:hover {
+  background: var(--uuidify-primary);
+  color: white;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* Features Section */
+.features-section {
+  padding: 5rem 2rem;
+  background: var(--uuidify-bg-white);
+}
+
+.features-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--uuidify-text-dark);
+  margin-bottom: 3rem;
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Feature Card Styles with Hover Animation */
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f0f0f0;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(95, 86, 217, 0.15);
+  border-color: var(--uuidify-primary);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--uuidify-text-dark);
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  color: #6B7280;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* SDKs Section */
+.sdks-section {
+  padding: 5rem 2rem;
+  background: var(--uuidify-bg-light);
+  text-align: center;
+}
+
+.sdks-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--uuidify-text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.sdks-subtitle {
+  font-size: 1.2rem;
+  color: #6B7280;
+  margin-bottom: 3rem;
+}
+
+.sdks-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sdk-card {
+  background: white;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--uuidify-text-dark);
+  border: 2px solid transparent;
+}
+
+.sdk-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(95, 86, 217, 0.2);
+  border-color: var(--uuidify-primary);
+  color: var(--uuidify-primary);
+  text-decoration: none;
+}
+
+.sdk-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.sdk-language {
+  font-size: 1rem;
+  color: #6B7280;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+}

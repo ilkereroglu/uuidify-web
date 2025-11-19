@@ -1,0 +1,8 @@
+node_modules
+build
+.docusaurus
+.git
+.github
+.DS_Store
+Dockerfile
+README.md
